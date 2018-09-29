@@ -5,7 +5,7 @@ const Datatypes=Sequelize.DataTypes
 const db=new Sequelize(
     {
         dialect:'sqlite',
-        storage:__dirname + '/restaraunts.db'
+        storage:__dirname + '/restarauntstestFINAL.db'
     })
     const Order=db.define('ORDER',
     {
@@ -39,14 +39,48 @@ app.get('/insert',(req,res)=>
         order:req.query["placeorder"],
         price:req.query["price"]
      })
-console.log("insert")
+ console.log("insert")
 console.log(req.query['table'])
+
 })
- 
-app.listen(5455,function()
+//  Order.create(
+//      {
+//      Table_no:1,
+//     order:'LE AAO',
+//     price:0
+//      })
+//      Order.create(
+//         {
+//         Table_no:2,
+//        order:'AA JAO',
+//        price:0
+   
+   
+   
+//         })
+
+app.get('/bill',(req,res)=>
+{
+
+
+    Order.sum('price' ,{where:{Table_no:req.query["fbill"] }}).then(Order1=>
+        {
+            // console.log("HEY I AM HERE");
+            
+           res.send(`<h1 align="center" style="font-weight:100;margin:11%;letter_spacing:17">AMOUNT  :  ${Order1}</h1>`);
+           console.log(Order1.order);
+    
+        })
+    
+
+})
+
+
+
+     app.listen(5456,function()
 {
     console.log(`connected
-    http://localhost:5455
+    http://localhost:5456
     `)
 })
 // })
