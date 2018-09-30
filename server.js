@@ -85,7 +85,7 @@ app.get('/bill',(req, res)=>
         
         
         const str = ans.reduce((acc, val) => {
-            return acc + `<li> ${val.order} </li>`
+            return acc + `<li> ${val.order} : ${val.price} </li>`
         }, '')
         const ans1=ans.reduce((acc,val)=>
         {
