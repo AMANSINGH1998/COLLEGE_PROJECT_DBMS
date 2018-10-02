@@ -5,7 +5,7 @@ const Datatypes=Sequelize.DataTypes
 const db=new Sequelize(
     {
         dialect:'sqlite',
-        storage:__dirname + '/restarauntstestsirtest4.db'
+        storage:__dirname + '/restarauntstestmamudat12.db'
     })
     const Order=db.define('ORDER',
     {
@@ -74,7 +74,30 @@ console.log(req.query['table'])
     
 
 // })
+app.get('/showbill', (req,res)=>
+{
+console.log('pinged');
 
+res.send('hii');
+
+})
+app.get('/editbill',(req,res)=>
+    {
+        Order.destroy({
+            where:
+            {
+                Table_no:req.query['ftable'],
+                order:req.query['forder']
+
+            }
+
+        })
+console.log("hit")
+
+
+
+
+    })
 
 app.get('/bill',(req, res)=>
 {
@@ -105,9 +128,9 @@ app.get('/bill',(req, res)=>
 
                 <br>
                 <h3 align="center" style="letter-spacing:11px;font-weight:100">ORDERS: </h3>
-                ${str}  
+                <h4>${str}</h4>  
                 <h3 align="center" style="letter-spacing:11px;font-weight:100">AMOUNT :</h3>
-                ${ans1}
+                <h4>${ans1}</h4>
                 </div>
                 </body>
             </html>
