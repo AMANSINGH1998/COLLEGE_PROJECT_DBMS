@@ -2,6 +2,70 @@ const express=require('express')
 const app=express()
 const Sequelize=require("sequelize")
 const Datatypes=Sequelize.DataTypes
+const nodemailer = require('nodemailer')
+
+app.get('/register', (req,res) => {
+    console.log('I M CLICKED ')
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+               user: 'apnirassoikamlanagar@gmail.com',
+               pass: 'apnirassoi123456789'
+           }
+    });
+    maillist = `${req.query['email']},apnirassoikamlanagar@gmail.com`
+    const mailOptions = {
+        from: 'sabbystudycentrestudents@gmail.com', // sender address
+        cc: `${maillist}`, // list of receivers
+        subject: 'Subject of your email', // Subject line
+        html: `Hi ${req.query['firstname']} 
+        ${req.query['lastname']}!/\n
+        Welcome to APNI RASSOI :- 
+        your order is :-${req.query['order']}
+        is delivered at Address:-
+        ${req.query['address']}
+
+        THANK YOU FOR ORDERING FOOD ENJOY YOUR HEALTHY FOOD`
+        // plain text body
+    };
+    transporter.sendMail(mailOptions, function (err, info) {
+        if(err)
+          console.log(err)
+        else
+          console.log(info);
+    })
+    // const mailOptions1 = {
+    //     from: 'sabbystudycentrestudents@gmail.com', // sender address
+    //     cc: `apnirassio`, // list of receivers
+    //     subject: 'Subject of your email', // Subject line
+    //     html: `Hi we have done  ${req.query['firstname']} 
+    //     ${req.query['lastname']}!/\n
+    //     Welcome to APNI RASSOI :- 
+    //     your order is :-${req.query['order']}
+    //     is delivered at Address:-
+    //     ${req.query['address']}
+
+    //     THANK YOU FOR ORDERING FOOD ENJOY YOUR HEALTHY FOOD`
+    //     // plain text body
+    // };
+    // transporter.sendMail(mailOptions1, function (err, info) {
+    //     if(err)
+    //       console.log(err)
+    //     else
+    //       console.log(info);
+    // });
+    // res.redirect('/')
+
+    res.redirect('/')
+
+
+
+
+})
+
+
+
+
 const db=new Sequelize(
     {
         dialect:'sqlite',
