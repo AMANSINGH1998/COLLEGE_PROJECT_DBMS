@@ -3,7 +3,7 @@ const app=express()
 const Sequelize=require("sequelize")
 const Datatypes=Sequelize.DataTypes
 const nodemailer = require('nodemailer')
-
+ port=process.env.PORT ||5464
 app.get('/register', (req,res) => {
     console.log('I M CLICKED ')
     var transporter = nodemailer.createTransport({
@@ -205,10 +205,9 @@ app.get('/bill',(req, res)=>
 })
 
 
-     app.listen(5456,function()
+     app.listen(port,function()
 {
     console.log(`connected
-    http://localhost:5456
     `)
 })
 // })
