@@ -205,11 +205,25 @@ app.get('/bill',(req, res)=>
 })
 
 
-     app.listen(port,function()
+     app.listen(1972,function()
 {
     console.log(`connected
+    http://localhost:1972
     `)
 })
+
+
+
+
+
+// app.listen(1972,function()
+// {
+//     console.log(`SERVER HAS STARTED 
+    
+//     http://localhost:1972
+//     `)
+
+// })
 // })
  
     // db.findALL(
