@@ -2,7 +2,11 @@ const express=require('express')
 const app=express()
 const Sequelize=require("sequelize")
 const Datatypes=Sequelize.DataTypes
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> daed2b11a0987cb620f120425c675ce5dd4986b0
 const nodemailer = require('nodemailer')
  port=process.env.PORT ||5464
 app.get('/register', (req,res) => {
@@ -67,12 +71,17 @@ app.get('/register', (req,res) => {
 
 
 
+<<<<<<< HEAD
 // =======
 // >>>>>>> parent of feea507... FIRST BEST PIECE
+=======
+=======
+>>>>>>> parent of feea507... FIRST BEST PIECE
+>>>>>>> daed2b11a0987cb620f120425c675ce5dd4986b0
 const db=new Sequelize(
     {
         dialect:'sqlite',
-        storage:__dirname + '/restarauntstestmamudat12.db'
+        storage:__dirname + '/restarauntstestsirtest4.db'
     })
     const Order=db.define('ORDER',
     {
@@ -141,30 +150,7 @@ console.log(req.query['table'])
     
 
 // })
-app.get('/showbill', (req,res)=>
-{
-console.log('pinged');
 
-res.send('hii');
-
-})
-app.get('/editbill',(req,res)=>
-    {
-        Order.destroy({
-            where:
-            {
-                Table_no:req.query['ftable'],
-                order:req.query['forder']
-
-            }
-
-        })
-console.log("hit")
-
-
-
-
-    })
 
 app.get('/bill',(req, res)=>
 {
@@ -195,9 +181,9 @@ app.get('/bill',(req, res)=>
 
                 <br>
                 <h3 align="center" style="letter-spacing:11px;font-weight:100">ORDERS: </h3>
-                <h4>${str}</h4>  
+                ${str}  
                 <h3 align="center" style="letter-spacing:11px;font-weight:100">AMOUNT :</h3>
-                <h4>${ans1}</h4>
+                ${ans1}
                 </div>
                 </body>
             </html>
