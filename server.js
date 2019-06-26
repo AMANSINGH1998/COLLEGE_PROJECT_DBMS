@@ -2,6 +2,7 @@ const express=require('express')
 const app=express()
 const Sequelize=require("sequelize")
 const Datatypes=Sequelize.DataTypes
+
 const nodemailer = require('nodemailer')
  port=process.env.PORT ||5464
 app.get('/register', (req,res) => {
@@ -66,6 +67,8 @@ app.get('/register', (req,res) => {
 
 
 
+// =======
+// >>>>>>> parent of feea507... FIRST BEST PIECE
 const db=new Sequelize(
     {
         dialect:'sqlite',
